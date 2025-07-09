@@ -77,7 +77,7 @@ async function fetchReceipts() {
         const response = await fetch("https://d6m2pjdaaf.execute-api.us-east-1.amazonaws.com/s1/ReceiptsTable");
         const data = await response.json();
 
-        const sort=data.sort((a,b)=>new Date(b.createdAt)- new Date(a.createdAt));
+        const sort=data.sort((a,b)=>new Date(b.processed_timestamp)- new Date(a.processed_timestamp));
         const recent=sort[0];
 
         const list = document.getElementById("receiptList");
