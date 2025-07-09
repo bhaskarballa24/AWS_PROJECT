@@ -66,7 +66,31 @@ async function uploadreceipt(){
     if(upload.ok){
         alert('File Uploaded succesfully');
         console.log('File url:',signedUrl);
+        await fetchReceipts();
     }else{
         alert("Upload failed");
     }
 }
+
+async function fetchReceipts() {
+      try {
+        const response = await fetch("https://d6m2pjdaaf.execute-api.us-east-1.amazonaws.com/s1/ReceiptsTable");
+        const data = await response.json();
+
+        const sort=data.sort((a,b)=>new Date(b.createdAt)- new Date(a.createdAt));
+        const recent=sort[0];
+
+        const list = document.getElementById("receiptList");
+        list.innerHTML = "";
+
+        if(recent){
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${recent.vendor}</strong><br><span>${recent.date}</span><br><span class='amount'>${recent.total}</span>`;
+            list.appendChild(li);
+        }
+      } catch (err) {
+        console.error("Error fetching receipts", err);
+      }
+    }
+
+    // window.onload = fetchReceipts;
