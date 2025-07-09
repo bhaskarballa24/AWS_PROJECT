@@ -88,6 +88,8 @@ async function fetchReceipts() {
             const li = document.createElement("li");
             li.innerHTML = `<strong>${recent.vendor}</strong><br><span>${recent.date}</span><br><span class='amount'>${recent.total}</span>`;
             list.appendChild(li);
+        }else{
+            list.innerHTML= "<li> NO list found </li>";
         }
       } catch (err) {
         console.error("Error fetching receipts", err);
