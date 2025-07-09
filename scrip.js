@@ -66,7 +66,7 @@ async function uploadreceipt(){
     if(upload.ok){
         alert('File Uploaded succesfully');
         console.log('File url:',signedUrl);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         await fetchReceipts();
     }else{
         alert("Upload failed");
