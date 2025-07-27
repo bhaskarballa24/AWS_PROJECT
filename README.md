@@ -1,4 +1,3 @@
-
 # Smart Receipt Organizer using AWS
 
 **Automating receipt extraction and notifications using Textract and SNS**
@@ -7,7 +6,7 @@
 
 This project, **Smart Receipt Organizer using AWS**, leverages a fully serverless, event-driven architecture on AWS to automate the process of receipt data extraction, storage, and notification. Built for scalability and simplicity, the system allows users to upload receipt PDFs via a secure frontend, extracts structured data using Amazon Textract, stores it in DynamoDB, and sends real-time summaries via Amazon SNS.
 
-## 🖼️ Project Structure
+## Project Structure
 
 ```bash
 smart-receipt-organizer/
@@ -26,7 +25,7 @@ smart-receipt-organizer/
 └── architecture.png            # Visual of system architecture (optional)
 ```
 
-## 🚀 Features
+## Features
 
 - 📤 **Secure PDF upload** via signed S3 URLs
 - 🧠 **Automated data extraction** using Textract AnalyzeExpense API
@@ -41,7 +40,7 @@ smart-receipt-organizer/
 
 
 
-## 🔁 Workflow
+## Workflow
 
 1. **User Interface**: A lightweight HTML/JS form allows users to upload receipt PDFs.
 2. **API Gateway**: Routes the signed URL request to `generateSignedUrl.js` Lambda.
@@ -54,7 +53,7 @@ smart-receipt-organizer/
 7. **Notification**:
    - SNS publishes a structured summary to the user’s email.
 
-## 🔐 Security & Permissions
+## Security & Permissions
 
 | Resource       | IAM Permissions                            |
 |----------------|---------------------------------------------|
@@ -64,7 +63,7 @@ smart-receipt-organizer/
 | DynamoDB Table | `PutItem`, `Scan`                          |
 | SNS Topic      | `Publish` (Lambda), `Subscribe` (Email)    |
 
-## 🧠 Lambda Functions
+## Lambda Functions
 
 ### `generateSignedUrl.js`
 - Generates and returns a secure S3 signed URL for the client to upload the receipt.
@@ -76,7 +75,7 @@ smart-receipt-organizer/
 - Saves extracted metadata to DynamoDB.
 - Sends summary via Amazon SNS email.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer         | Service             |
 |---------------|----------------------|
@@ -89,7 +88,7 @@ smart-receipt-organizer/
 | Messaging     | Amazon SNS           |
 | Security      | IAM Roles & Policies |
 
-## 📦 Future Enhancements
+## Future Enhancements
 
 - 🔐 Add **Cognito authentication** for user login & session management
 - 📊 **Receipt Dashboard** for filtering, visualization, CSV export
@@ -105,9 +104,9 @@ smart-receipt-organizer/
 ### Email Summary
 ![](screenshot/email-summary.png)
 
-## 📚 Getting Started
+## Getting Started
 
-> 💡 This assumes you're familiar with AWS Lambda, API Gateway, S3, and IAM.
+> This assumes you're familiar with AWS Lambda, API Gateway, S3, and IAM.
 
 1. **Frontend Setup**
    - Clone this repo
