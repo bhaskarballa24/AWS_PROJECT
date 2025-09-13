@@ -128,6 +128,6 @@ smart-receipt-organizer/
    - With primary key `receipt_id` or appropriate schema
 
 
-###Here's the demo: 
+### Here's the demo: 
 https://bhaskarballa24.github.io/AWS_PROJECT/
 
